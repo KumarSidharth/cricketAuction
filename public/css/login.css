@@ -1,0 +1,108 @@
+html, body {
+    margin: 0;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    background: #222;
+    color: #ccc;
+}
+
+.picture {
+    width: calc(100vw - 414px);
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('/images/alessandro-bogliari-oDs_AxeR5g4-unsplash.jpg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form {
+    height: 100vh;
+    width: 414px;
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0 0 25px 0;
+}
+
+h2, h3 {
+    font-weight: 500;
+    cursor: default;
+}
+
+input {
+    background: #444;
+    border: none;
+    color: white;
+    min-height: 25px;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.errorMsg {
+    background: #611717;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.warningMsg {
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #464609;
+    color: white;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 10px 0;
+}
+
+button {
+    border: none;
+    color: #f7f7f7;
+    font-size: 16px;
+    padding: 2px 10px;
+    min-width: 100px;
+    margin-left: 5px;
+    border-radius: 5px 25px;
+    cursor: pointer;
+}
+
+[type=submit] {
+    background: #293780;
+}
+
+[type=reset] {
+    background: rgb(15, 25, 78);
+    color: #b3b9e6;
+}
+
+a {
+    color: #d8ad5f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
