@@ -20,7 +20,10 @@
     "nodejs",
     "express"
   ],
-  "author": "Kumar Sidharth",
+  "author": {
+    "name": "Kumar Sidharth",
+    "email": "k.sidharth1994@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/KumarSidharth/cricketAuction/issues"
