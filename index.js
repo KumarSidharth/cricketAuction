@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // app files import
+const connectMongodb = require('./database/connect');
 const loginRoutes = require('./login/login.routes');
 
 const app = express();
@@ -23,12 +24,16 @@ app.set('views', 'views');
 app.use('/', (req, res, next) => next());
 
 // middleware for all rest API's
-app.use('/api',(req, res, next) => next());
+app.use('/api', (req, res, next) => next());
 
 app.use('/login', loginRoutes);
 
 // error handler
 app.use((req, res, next) => res.status(404).send('Page not found <a href="/">Go Home</a>'));
 
-http.createServer(app).listen(PORT);
-console.log(`See the magic on port number ${PORT}`);
+connectMongodb(client => {
+    console.log('database connected ', client);
+    app.set('db', client.db());
+    http.createServer(app).listen(PORT, () =>
+        console.log(`See the magic on port number ${PORT}`));
+});
