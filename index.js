@@ -33,7 +33,7 @@ app.use((req, res, next) => res.status(404).send('Page not found <a href="/">Go 
 
 connectMongodb(client => {
     console.log('database connected ', client);
-    app.set('db', client.db());
+    global.db = client.db();
     http.createServer(app).listen(PORT, () =>
         console.log(`See the magic on port number ${PORT}`));
 });
