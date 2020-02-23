@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 // app files import
 const connectMongodb = require('./database/connect');
 const loginRoutes = require('./login/login.routes');
+const teamRoutes = require('./teams/team.routes');
 
 const app = express();
 const PORT = 80;
@@ -27,6 +28,8 @@ app.use('/', (req, res, next) => next());
 app.use('/api', (req, res, next) => next());
 
 app.use('/login', loginRoutes);
+
+app.use('/teams', teamRoutes);
 
 // error handler
 app.use((req, res, next) => res.status(404).send('Page not found <a href="/">Go Home</a>'));
