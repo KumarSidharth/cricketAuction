@@ -1,0 +1,30 @@
+<%- include('./layoutPartials/head.partial.ejs') %>
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Add team</title>
+</head>
+<body>
+    <form action="/teams/add" method="post">
+        <h3>Add Team</h3>
+        <label for="teamName">Team name</label>
+        <input id="teamName"
+               type="text"
+               name="teamName"
+               placeholder="Enter team name"
+               required
+               minlength="3"
+               maxlength="50" />
+        
+        <label for="shortName">Short name</label>
+        <input id="shortName"
+                type="text"
+                name="shortName"
+                placeholder="Short team name"
+                maxlength="8"
+                oninput="this.value = this.value.toUpperCase()"/>
+        <div class="button-group">
+            <button type="submit">Add</button>
+            <button type="reset">Clear</button>
+        </div>
+    </form>
+</body>
+</html>
