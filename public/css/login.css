@@ -1,5 +1,7 @@
 body {
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 .picture {
@@ -13,7 +15,6 @@ body {
 }
 
 form {
-    height: 100vh;
     width: 414px;
     box-sizing: border-box;
     padding: 15px;

@@ -1,6 +1,4 @@
-const mongodb = require('mongodb');
-const MongoClient = mongodb.MongoClient;
-
+const mongoose = require('mongoose');
 const DataBaseCredentials = require('./credentials');
 
 /**
@@ -34,10 +32,9 @@ const DataBaseCredentials = require('./credentials');
  */
 module.exports = function connectMongodb(successCallback) {
     const dbCredential = new DataBaseCredentials();
-    return MongoClient.connect(dbCredential.generateUrl())
+    return mongoose.connect(dbCredential.generateUrl())
         .then(client => {
             successCallback(client);
-            return client.db();
         })
         .catch(err => console.error(err));
 }
