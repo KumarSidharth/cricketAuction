@@ -2,6 +2,17 @@
     <title>All teams</title>
 </head>
 <body>
-    <h2>All teams</h2>
+    <main>
+        <h2>All teams</h2>
+        <% teams.forEach( team=> { %>
+            <div>
+                <div><%= team.teamName %></div>
+                <div><%= team.shortName %></div>
+                <div><%= team.homeGround %></div>
+                
+            </div>
+
+        <% }) %>
+    </main>
 </body>
 </html>

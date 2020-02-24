@@ -1,5 +1,4 @@
 <%- include('./layoutPartials/head.partial.ejs') %>
-    <link rel="stylesheet" href="/css/login.css">
     <title>Add team</title>
 </head>
 <body>
@@ -9,7 +8,7 @@
         <input id="teamName"
                type="text"
                name="teamName"
-               placeholder="Enter team name"
+               placeholder="My Team"
                required
                minlength="3"
                maxlength="50" />
@@ -18,9 +17,61 @@
         <input id="shortName"
                 type="text"
                 name="shortName"
-                placeholder="Short team name"
+                placeholder="TN"
                 maxlength="8"
                 oninput="this.value = this.value.toUpperCase()"/>
+        
+        <label for="logoUrl">Team Logo URL</label>
+        <input id="logoUrl"
+                type="text"
+                name="logoUrl"
+                placeholder="https://www.myTeamLogo.com"
+                minlength="10"/>
+
+        <label for="homeGround">Home ground</label>
+        <input id="homeGround"
+                type="text"
+                name="homeGround"
+                placeholder="Feroz Shah Kotla"
+                required
+                minlength="3"
+                maxlength="100" />
+        
+        <label for="website">Website</label>
+        <input id="website"
+                type="text"
+                name="website"
+                placeholder="https://www.myTeam.com"
+                minlength="12" />
+        
+        <label for="facebook">Facebook page</label>
+        <input id="facebook"
+                type="text"
+                name="facebook"
+                placeholder="https://www.facebook.com/myTeam"
+                minlength="26"/>
+        
+        <label for="twitter">Twitter profile</label>
+        <input id="twitter"
+                type="text"
+                name="twitter"
+                placeholder="https://www.twitter.com/myTeam"
+                minlength="25"
+                maxlength="50" />
+
+        <label for="instagram">Instagram profile</label>
+        <input id="instagram"
+               type="text"
+               name="instagram"
+               placeholder="https://www.instagram.com/myTeam"
+               minlength="26" />
+        
+        <label for="youtube">Youtube channel</label>
+        <input id="youtube"
+                type="text"
+                name="youtube"
+                placeholder="https://www.youtube.com/myTeam"
+                minlength="25"/>
         <div class="button-group">
             <button type="submit">Add</button>
             <button type="reset">Clear</button>
