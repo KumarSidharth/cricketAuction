@@ -31,8 +31,7 @@ const DataBaseCredentials = require('./credentials');
  * @param {dbConnectionSuccessCallBack} successCallback - called after connection is successful
  */
 module.exports = function connectMongodb(successCallback) {
-    const dbCredential = new DataBaseCredentials();
-    return mongoose.connect(dbCredential.generateUrl())
+    return mongoose.connect(DataBaseCredentials.generateUrl())
         .then(client => {
             successCallback(client);
         })
