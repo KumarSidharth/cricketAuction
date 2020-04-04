@@ -1,12 +1,20 @@
-
-const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: '.',
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  target: 'node',
-  mode: 'production',
+    entry: './index.js',
+    output: {
+        filename: 'server.js',
+        path: './dist',
+    },
+    target: 'node',
+    mode: 'production',
+    plugins: [
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin([{
+                from: './public',
+                to: './public'
+            },
+        ])
+    ],
 };
