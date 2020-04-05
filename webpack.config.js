@@ -19,4 +19,22 @@ module.exports = {
             },
         ])
     ],
+    module: {
+        rules: [
+            /**
+             * @Todo jshint-loader throws an error with webpack 4
+             * it will be fixed in a future update of webpack-loader
+             */
+            // {
+            //     test: /\.js$/,
+            //     enforce: 'pre',
+            //     exclude: /node_modules/,
+            //     use: [
+            //         {
+            //             loader: `jshint-loader`,
+            //         },
+            //     ]
+            // },
+        ]
+    },
 };
