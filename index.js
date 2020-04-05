@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.set('view engine', 'ejs');
-app.engine('.ejs', ejs)
-app.set('views', 'views');
+app.engine('.ejs', ejs); // fixes webpack bundling issue
+app.set('views', 'views'); // sets the path to all the ejs files
 
 // global middleware
 app.use('/', (req, res, next) => next());
