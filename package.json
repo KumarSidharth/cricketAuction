@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "restart": "nodemon index.js",
-    "start": "node index.js",
+    "start": "npm run build && node ./dist/server.js",
+    "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,7 +38,10 @@
     "mongoose": "^5.9.2"
   },
   "devDependencies": {
-    "jshint": "^2.11.0-rc1",
-    "nodemon": "^2.0.2"
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }

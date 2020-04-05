@@ -5,6 +5,7 @@ const path = require('path');
 // library imports
 const express = require('express');
 const bodyParser = require('body-parser');
+const ejs = require("ejs").__express;
 
 // app files import
 const connectMongodb = require('./database/connect');
@@ -14,12 +15,13 @@ const teamRoutes = require('./teams/team.routes');
 const app = express();
 const PORT = 80;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.engine('.ejs', ejs); // fixes webpack bundling issue
+app.set('views', 'views'); // sets the path to all the ejs files
 
 // global middleware
 app.use('/', (req, res, next) => next());
