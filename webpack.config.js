@@ -13,10 +13,19 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         new CleanWebpackPlugin(), // deletes dist before build starts
-        new CopyWebpackPlugin([{ // copies directories
+        new CopyWebpackPlugin([ // copies directories
+            { 
                 from: './public',
                 to: './public'
             },
+            {
+                from: './views',
+                to: './views'
+            },
+            {
+                from: './tmp',
+                to: './tmp'
+            }
         ])
     ],
     module: {

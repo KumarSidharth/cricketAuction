@@ -1,5 +1,6 @@
 const expressRouter = require('express').Router();
 const Team = require('../database/teams.schema');
+const changeLogo = require('./logo.routes');
 
 expressRouter.get('/', (req, res, next) => {
     Team.find()
@@ -17,7 +18,7 @@ expressRouter.get('/add', (req, res, next) =>
     res.render('addTeam'));
 
 expressRouter.post('/add', (req, res, next) => {
-    new Team({
+    const team = {
         teamName: req.body.teamName,
         logoUrl: req.body.logoUrl,
         shortName: req.body.shortName,
@@ -29,14 +30,20 @@ expressRouter.post('/add', (req, res, next) => {
             instagram: req.body.instagram,
             youtube: req.body.youtube,
         }
-    })
+    };
+    new Team(team)
         .save()
-        .then(() => res.redirect(`/teams/${req.body.teamName}`))
+        .then(() => res.render('editLogo', {team}))
         .catch((error) => {
             console.error(error);
             res.send('error');
         });
 });
+
+expressRouter.use('/:team/changeLogo', (req, res, next) => {
+    req.team = req.params.team;
+    next();
+} ,changeLogo);
 
 expressRouter.get('/:team', (req, res, next) => {
     Team.findOne({
@@ -54,5 +61,6 @@ expressRouter.get('/:team', (req, res, next) => {
     })
     .catch(err => res.send('error Team not found'));
 });
+
 
 module.exports = expressRouter;

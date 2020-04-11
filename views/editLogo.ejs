@@ -1,0 +1,43 @@
+<%- include('./layoutPartials/head.partial.ejs') %>
+<% if(team) { %>
+    <title>Upload <%= team.shortName %> logo</title>
+<% } %>
+</head>
+<body>
+    <% if(team) { %>
+
+        <h1>Upload 
+            <%= team.shortName %> logo
+        </h1>
+        <form name="uploadLogo"
+            method="POST"
+            action="/teams/<%= team.shortName %>/changeLogo"
+            enctype="multipart/form-data">
+            <input type="hidden"
+                name="teamName"
+                value="<%= team.teamName %>"
+                id="teamName"/>
+            <label for="uploadLogo">Upload logo</label>
+            <input type="file"
+                name="teamlogo"
+                id="uploadLogo"
+                accept="image/*"
+                placeholder="select a file to upload"/>
+            <div>
+            <!-- TODO add progress using XHR-->
+            <!-- <progress id="upload-progress"
+                hidden
+                value="0"
+                max="100">
+            </progress> -->
+            </div>
+            <button type="submit">
+                Upload
+            </button>
+        </form>
+    <% } else { %>
+        <h4>No team found</h4>
+        <a href="/teams"> &lt; Go back</a>
+    <% } %>
+
+</body>
