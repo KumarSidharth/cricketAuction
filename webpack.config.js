@@ -19,6 +19,10 @@ module.exports = {
                 to: './public'
             },
             {
+                from: './views',
+                to: './views'
+            },
+            {
                 from: './tmp',
                 to: './tmp'
             }
