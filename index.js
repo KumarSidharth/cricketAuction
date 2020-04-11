@@ -16,6 +16,7 @@ const app = express();
 const PORT = 80;
 
 app.use(express.static('./public'));
+app.use('/tmp', express.static('./tmp'));
 app.use(bodyParser.urlencoded({
     extended: false
 }));

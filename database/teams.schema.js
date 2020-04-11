@@ -8,7 +8,7 @@ module.exports = mongoose.model('Team', new Schema({
     },
     logoUrl:{
         type: String,
-        required: true,
+        required: false,
     },
     shortName: {
         type: String,
