@@ -27,8 +27,13 @@ app.set('views', 'views'); // sets the path to all the ejs files
 // global middleware
 app.use('/', (req, res, next) => next());
 
-// middleware for all rest API's
-app.use('/api', (req, res, next) => next());
+// middleware for all REST API's
+app.use('/api', (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Todo: should be changed when in production
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
 
 app.use('/login', loginRoutes);
 
